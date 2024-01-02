@@ -74,7 +74,6 @@ export function generateTimeSlots() {
     currentDate.setHours(8, 0, 0, 0); // Reset the hours to 8:00 AM for the next day
   }
 
-  console.log('🚀 ~ slotsForEachDay:', slotsForEachDay);
   return { timeSlots, slotsForEachDay };
 }
 
@@ -112,7 +111,6 @@ export function filterAvailableSlotsForDuration(
   userActivityRecords: Record<string, UserActivity[]>
 ) {
   const durationSlots = selectedDuration / TIME_SLOT_DURATION;
-  console.log('🚀 ~ durationSlots:', durationSlots);
   const newTimeSlots = { ...timeSlots };
 
   Object.entries(userActivityRecords).forEach(([k, v]) => {
@@ -131,6 +129,4 @@ export function filterAvailableSlotsForDuration(
       }
     }
   });
-
-  console.log('newTimeSlots', JSON.stringify(newTimeSlots, null, 2));
 }

@@ -15,8 +15,6 @@ export const ActivitySection = () => {
           <Text style={cssGlobal.text_h2}>Scheduled Activities</Text>
 
           {Object.entries(userActivities).map(([k, v], i) => {
-            console.log('🚀 ~ k:', k);
-
             const dateObject = new Date(k);
             const monthName = new Intl.DateTimeFormat('en-US', {
               month: 'long',
