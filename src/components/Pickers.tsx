@@ -69,7 +69,6 @@ export const DateTimePicker = ({
   function handleConfirm() {
     setFormValues((state) => ({ ...state, date: value || Object.keys(timeSlots)[0] }));
     bottomSheetRef.current?.close();
-    // reset form values
     onChange(undefined);
   }
 
