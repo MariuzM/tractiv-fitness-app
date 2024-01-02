@@ -1,4 +1,3 @@
-import { useStoreUserActivities } from '../states/stateUserActivity.state';
 import type { UserActivity } from '../types/activity.type';
 
 export const TIME_SLOT_DURATION = 1800; // In seconds

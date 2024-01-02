@@ -7,7 +7,7 @@ import { API_Durations } from '../apis/main.api';
 import { useStoreUserActivities } from '../states/stateUserActivity.state';
 import { Color, cssGlobal, Style } from '../styles/global.style';
 import type { UserActivity } from '../types/activity.type';
-import { filterAvailableSlotsForDuration } from '../utils/dateTime.util';
+import { filterAvailableSlotsForDuration, TIME_SLOT_DURATION } from '../utils/dateTime.util';
 
 export const TimePicker = ({
   bottomSheetRef,
@@ -16,7 +16,7 @@ export const TimePicker = ({
   bottomSheetRef: React.RefObject<BottomSheet>;
   setFormValues: React.Dispatch<React.SetStateAction<UserActivity>>;
 }) => {
-  const [value, onChange] = useState();
+  const [value, onChange] = useState(TIME_SLOT_DURATION);
   const timeSlots = useStoreUserActivities((state) => state.timeSlots);
   const userActivityRecords = useStoreUserActivities((state) => state.userActivityRecords);
 
