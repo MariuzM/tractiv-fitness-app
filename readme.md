@@ -1,5 +1,11 @@
 # Tractiv - Fitness App
 
+
+
+https://github.com/MariuzM/tractiv-fitness-app/assets/36937039/b4556021-2e19-45a9-a213-87928fc52c37
+
+
+
 ## ⭐️ Features
 
 ### 1. Icon and Splash Screen
