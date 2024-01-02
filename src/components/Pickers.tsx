@@ -27,8 +27,8 @@ export const TimePicker = ({
         duration: value || Object.keys(API_Durations).map(Number)[0],
       }));
       filterAvailableSlotsForDuration(value, timeSlots, userActivityRecords);
+      bottomSheetRef.current?.close();
     }
-    // bottomSheetRef.current?.close();
   }
 
   return (
