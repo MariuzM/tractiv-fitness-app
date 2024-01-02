@@ -104,29 +104,3 @@ export function filterAvailableSlots(
 
   return filteredSlots;
 }
-
-export function filterAvailableSlotsForDuration(
-  selectedDuration: number,
-  timeSlots: Record<string, string>,
-  userActivityRecords: Record<string, UserActivity[]>
-) {
-  const durationSlots = selectedDuration / TIME_SLOT_DURATION;
-  const newTimeSlots = { ...timeSlots };
-
-  Object.entries(userActivityRecords).forEach(([k, v]) => {
-    for (const activity of v) {
-      if (newTimeSlots[activity.date]) {
-        delete newTimeSlots[activity.date];
-
-        const numIncrements = Math.ceil(activity.duration / TIME_SLOT_DURATION);
-        if (numIncrements > 1) {
-          const timeSlotDate = new Date(activity.date);
-          for (let i = 1; i < numIncrements; i++) {
-            timeSlotDate.setMinutes(timeSlotDate.getMinutes() + 30);
-            delete newTimeSlots[timeSlotDate.toISOString()];
-          }
-        }
-      }
-    }
-  });
-}

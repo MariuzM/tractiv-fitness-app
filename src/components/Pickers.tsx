@@ -7,7 +7,7 @@ import { API_Durations } from '../apis/main.api';
 import { useStoreUserActivities } from '../states/stateUserActivity.state';
 import { Color, cssGlobal, Style } from '../styles/global.style';
 import type { UserActivity } from '../types/activity.type';
-import { filterAvailableSlotsForDuration, TIME_SLOT_DURATION } from '../utils/dateTime.util';
+import { TIME_SLOT_DURATION } from '../utils/dateTime.util';
 
 export const TimePicker = ({
   bottomSheetRef,
@@ -17,8 +17,6 @@ export const TimePicker = ({
   setFormValues: React.Dispatch<React.SetStateAction<UserActivity>>;
 }) => {
   const [value, onChange] = useState(TIME_SLOT_DURATION);
-  const timeSlots = useStoreUserActivities((state) => state.timeSlots);
-  const userActivityRecords = useStoreUserActivities((state) => state.userActivityRecords);
 
   function handleConfirm() {
     if (value) {
@@ -26,7 +24,6 @@ export const TimePicker = ({
         ...state,
         duration: value || Object.keys(API_Durations).map(Number)[0],
       }));
-      filterAvailableSlotsForDuration(value, timeSlots, userActivityRecords);
       bottomSheetRef.current?.close();
     }
   }
