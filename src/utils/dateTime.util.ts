@@ -17,7 +17,7 @@ export function generateTimeSlots() {
   currentDate.setMinutes(currentDate.getMinutes() + 30 - (currentDate.getMinutes() % 30));
 
   const endDate = new Date();
-  endDate.setDate(endDate.getDate() + 1); // Set the end date to two days from now
+  endDate.setDate(endDate.getDate() + 7); // Set the end date to two days from now
 
   const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const monthsOfYear = [
